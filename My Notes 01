@@ -1,0 +1,6 @@
+QQ: What unix commnad to extract line 20 to 40 and output it to another file?
+
+head -40 infile|tail -20 > outfile
+sed -n '20,40p' input.file > output.file
+awk '{if (NR >= 20 && NR <= 40) print $0}' inputfile > outputfile
+perl -n -e  '( $. >= 20 && $. <= 40 ) && print ' infile > outfile
